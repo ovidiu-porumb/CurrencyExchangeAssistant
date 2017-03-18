@@ -19,14 +19,8 @@ namespace OP.CurrencyExchangeAssistant.WebService.Queries
 
         public bool IsThereAReasonToPanicBecauseOfTheExchange()
         {
-            var reportedExchangeRates = DownloadEuroExchangeRatesForToday();
-
-            if (AnyFluctuationOverTheThresholdWasRegistered(reportedExchangeRates.ToList(), FluctuationThreshold))
-            {
-                return true;
-            }
-
-            return false;
+            var reportedExchangeRates = DownloadEuroExchangeRatesForToday().ToList();
+            return AnyFluctuationOverTheThresholdWasRegistered(reportedExchangeRates, FluctuationThreshold);
         }
 
         private IEnumerable<FeedItem> DownloadEuroExchangeRatesForToday()
