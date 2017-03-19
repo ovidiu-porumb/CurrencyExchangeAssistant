@@ -13,8 +13,8 @@ namespace OP.CurrencyExchangeAssistant.WebService
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{action}",
+                defaults: new { controller = "BNRExchange", action = "CheckIfANotableFluctuationHappenedToday" }
             );
         }
     }

@@ -52,7 +52,7 @@ namespace OP.CurrencyExchangeAssistant.WebService.Queries
             var convertedExchangeRates = new List<double>(reportedExchangeRates.Count());
             convertedExchangeRates.AddRange(reportedExchangeRates.Select(exchangeRate => double.Parse(exchangeRate.Content)));
 
-            return convertedExchangeRates.Any(rate => Math.Floor(rate - convertedExchangeRates.First()) > fluctuationThreshold);
+            return convertedExchangeRates.Any(rate => Math.Abs(rate - convertedExchangeRates.First()) > fluctuationThreshold);
         }
     }
 }

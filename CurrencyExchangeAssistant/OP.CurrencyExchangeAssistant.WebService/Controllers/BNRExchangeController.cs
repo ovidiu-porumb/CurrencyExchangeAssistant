@@ -15,8 +15,6 @@ namespace OP.CurrencyExchangeAssistant.WebService.Controllers
             this.mediator = mediator;
         }
 
-        //https://smsgateway.me/sms-api-documentation/messages/send-message-to-number
-
         [HttpGet]
         public IHttpActionResult CheckIfANotableFluctuationHappenedToday([FromUri]ExchangeFluctuationQuery exchangeFluctuationQuery)
         {

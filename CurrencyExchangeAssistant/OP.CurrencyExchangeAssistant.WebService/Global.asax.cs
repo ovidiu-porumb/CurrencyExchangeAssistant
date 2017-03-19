@@ -6,6 +6,8 @@ using Autofac;
 using Autofac.Features.Variance;
 using Autofac.Integration.WebApi;
 using MediatR;
+using OP.CurrencyExchangeAssistant.WebService.Handlers;
+using OP.CurrencyExchangeAssistant.WebService.Queries;
 
 namespace OP.CurrencyExchangeAssistant.WebService
 {
@@ -58,8 +60,8 @@ namespace OP.CurrencyExchangeAssistant.WebService
 
         private static void RegisterQueries(ContainerBuilder builder)
         {
-            //builder.RegisterAssemblyTypes(typeof(DatesByNameQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            //builder.RegisterAssemblyTypes(typeof(DatesByNameQueryHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(ExchangeFluctuationQuery).GetTypeInfo().Assembly).AsImplementedInterfaces();
+            builder.RegisterAssemblyTypes(typeof(ExchangeFluctuationHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
         }
     }
 }
