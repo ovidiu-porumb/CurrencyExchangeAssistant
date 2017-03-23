@@ -21,7 +21,7 @@ namespace OP.CurrencyExchangeAssistant.ConsoleWatch
         {
             var client = new RestClient("http://localhost/exchange");
             var request = new RestRequest("api/BNRExchange/CheckIfANotableFluctuationHappenedToday?fluctuationThreshold=0.03", Method.GET);
-            RestResponse<ServiceResponse> response = (RestResponse<ServiceResponse>) client.Execute<ServiceResponse>(request);
+            var response = (RestResponse<ServiceResponse>) client.Execute<ServiceResponse>(request);
 
             return response.Data;
         }
@@ -35,19 +35,6 @@ namespace OP.CurrencyExchangeAssistant.ConsoleWatch
 
 
             client.ExecuteAsync(request, response => { Console.WriteLine(response.Content); });
-        }
-
-        public class ServiceResponse
-        {
-            public bool Result { get; set; }
-            public int Id { get; set; }
-            public object Exception { get; set; }
-            public int Status { get; set; }
-            public bool IsCanceled { get; set; }
-            public bool IsCompleted { get; set; }
-            public int CreationOptions { get; set; }
-            public object AsyncState { get; set; }
-            public bool IsFaulted { get; set; }
         }
     }
 }

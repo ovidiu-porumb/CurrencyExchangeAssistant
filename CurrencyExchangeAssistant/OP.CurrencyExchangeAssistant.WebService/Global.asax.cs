@@ -48,14 +48,7 @@ namespace OP.CurrencyExchangeAssistant.WebService
                 return t => (IEnumerable<object>)c.Resolve(typeof(IEnumerable<>).MakeGenericType(t));
             });
 
-            RegisterCommands(builder);
             RegisterQueries(builder);
-        }
-
-        private static void RegisterCommands(ContainerBuilder builder)
-        {
-            //builder.RegisterAssemblyTypes(typeof(RegisterDate).GetTypeInfo().Assembly).AsImplementedInterfaces();
-            //builder.RegisterAssemblyTypes(typeof(RegisterDateHandler).GetTypeInfo().Assembly).AsImplementedInterfaces();
         }
 
         private static void RegisterQueries(ContainerBuilder builder)
